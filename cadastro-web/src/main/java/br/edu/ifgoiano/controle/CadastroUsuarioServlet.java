@@ -45,7 +45,12 @@ public class CadastroUsuarioServlet extends HttpServlet {
 			//redirecionar o usuário para a mesma página de cadastro do usuário.
 			req.getRequestDispatcher("usuarioCadastro.jsp").forward(req, resp);
 		}
+		
+		req.setAttribute("nome", "valor");
+		
+		req.getAttribute("nome");
 	}
+	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

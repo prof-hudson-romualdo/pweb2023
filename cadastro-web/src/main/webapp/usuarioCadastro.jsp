@@ -26,9 +26,9 @@
 		<h1>Cadastro de Usuário</h1>
 		<form method="post" action="cadastrarUsuario">
 			<label for="nome">Nome:</label>
-			<input type="text" name="nome" value="${param.nome}">
+			<input type="text" name="nome" value="${nome}">
 			<label for="email">E-mail:</label>
-			<input type="text" name="email" value="${param.email}"><br><br>
+			<input type="text" name="email" value="${email}"><br><br>
 			<label for="senha1">Senha:</label>
 			<input type="password" name="senha1" >
 			<label for="senha2">Senha confirmada:</label>
