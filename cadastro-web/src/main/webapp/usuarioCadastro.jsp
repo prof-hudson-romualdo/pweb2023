@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -37,12 +38,12 @@
 			<a class="btn btn-secondary" href="cadastrarUsuario" role="button">Listar Usuários</a>
 			<a class="btn btn-secondary" href="index.html" role="button">Voltar</a>
 		</form>
-		<%if(!nome.isEmpty()){ %>
+		<c:if test="${not empty param.nome}">
 			<hr>
 			<div class="alert alert-danger" role="alert">
-				<%=nome %> <span>as senhas informadas não são iguais</span>
-			</div>
-		<%} %>
+				${param.nome}<span>, as senhas informadas não são iguais</span>
+			</div>		
+		</c:if>
 	</div>
 </body>
 </html>
