@@ -28,23 +28,9 @@ public class ConversorDeMoedaServlet extends HttpServlet {
 			
 			Float vlrDolares = vlrReais / vlrCotacao;
 			
-			//Retornar o valor para o usuário
-			resp.getWriter().print(obterHtmlDeMoedaConvertida(vlrReais, vlrDolares));
+			req.setAttribute("dolares", vlrDolares);
+			
+			req.getRequestDispatcher("moedaConvertida.jsp").forward(req, resp);
 		}
-	}
-	
-	private String obterHtmlDeMoedaConvertida(Float vlrReais, Float vlrDolares) {
-		String html = new String()
-		.concat("<html>")
-		.concat("<body>")
-			.concat("<p>")
-			.concat("O valor R$ " + vlrReais + " equivale a $ " + vlrDolares + " na contação atual do dólar.")
-			.concat("</p>")
-			.concat("<p>Vindo do Servlet</p>")
-			.concat("<a href=\"index.jsp\">Voltar</a>")
-		.concat("</body>")
-		.concat("</html>");
-		
-		return html;
 	}
 }
