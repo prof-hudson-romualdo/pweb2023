@@ -45,18 +45,14 @@ public class CadastroUsuarioServlet extends HttpServlet {
 			//redirecionar o usuário para a mesma página de cadastro do usuário.
 			req.getRequestDispatcher("usuarioCadastro.jsp").forward(req, resp);
 		}
-		
-		req.setAttribute("nome", "valor");
-		
-		req.getAttribute("nome");
 	}
 	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		for (Usuario usuario : lstDeUsuario) {
-			System.out.println(usuario.getNome().concat(" - ").concat(usuario.getEmail()));
-		}
+		req.setAttribute("usuarios", lstDeUsuario);
+		
+		req.getRequestDispatcher("usuarioListagem.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -64,13 +60,3 @@ public class CadastroUsuarioServlet extends HttpServlet {
 		this.lstDeUsuario.clear();
 	}
 }
-
-
-
-
-
-
-
-
-
-

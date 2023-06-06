@@ -14,15 +14,6 @@
     <title>Cadastro de Usuário</title>
   </head>
 <body>
-	<%
-		String nome = request.getParameter("nome");
-		if(nome == null)
-			nome = "";
-		
-	    String email = request.getParameter("email");
-	    if(email == null)
-	    	email = "";
-	%>
 	<div class="container-fluid">
 		<h1>Cadastro de Usuário</h1>
 		<form method="post" action="cadastrarUsuario">
@@ -43,7 +34,7 @@
 			<div class="alert alert-danger" role="alert">
 				${param.nome}<span>, as senhas informadas não são iguais</span>
 			</div>		
-		</c:if>
+		</c:if>		
 	</div>
 </body>
 </html>
