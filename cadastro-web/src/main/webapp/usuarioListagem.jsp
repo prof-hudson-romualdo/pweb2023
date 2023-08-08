@@ -22,6 +22,7 @@
 					<th>ID</th>
 					<th>Nome</th>
 					<th>Email</th>
+					<th>#</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -30,6 +31,9 @@
 						<td>${usu.id}</td>
 						<td>${usu.nome}</td>
 						<td><a href="mailto:${usu.email}">${usu.email}</a></td>
+						<td>
+							<a class="btn btn-success" href="usuarioAlterar.jsp">Editar</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
