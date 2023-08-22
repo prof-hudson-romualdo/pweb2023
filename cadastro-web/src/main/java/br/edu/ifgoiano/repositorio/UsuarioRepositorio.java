@@ -65,4 +65,45 @@ public class UsuarioRepositorio {
 			e.printStackTrace();
 		}
 	}
+	
+	public Usuario obterUsuario(Integer id) {
+		String sql = "select nome, email, senha from usuario where id = ?";
+
+		try (Connection conn = this.getConnection(); 
+			 PreparedStatement pst = conn.prepareStatement(sql);) {
+			pst.setInt(1, id);
+			
+			ResultSet resultSet = pst.executeQuery();
+
+			while (resultSet.next()) {
+				Usuario usuario = new Usuario();
+				usuario.setId(id);
+				usuario.setNome(resultSet.getString("nome"));
+				usuario.setEmail(resultSet.getString("email"));
+				usuario.setSenha(resultSet.getString("senha"));
+
+				return usuario;
+			}
+		} catch (SQLException ex) {
+			System.out.println("Erro na consulta de usuarios");
+			ex.printStackTrace();
+		}
+		
+		throw new RuntimeException("Usuário não encontrado");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
